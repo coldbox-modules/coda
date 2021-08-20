@@ -1,0 +1,36 @@
+{
+    "name":"coda",
+    "version":"0.1.0",
+    "author":"Eric Peterson, Michael Anderson",
+    "location":"forgeboxStorage",
+    "homepage":"https://github.com/coldbox-modules/coda",
+    "documentation":"https://github.com/coldbox-modules/coda",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/coldbox-modules/coda"
+    },
+    "bugs":"https://github.com/coldbox-modules/coda/issues",
+    "slug":"str",
+    "shortDescription":"Either date helper functions or an object-oriented date wrapper. Not sure which yet.",
+    "description":"Either date helper functions or an object-oriented date wrapper. Not sure which yet.",
+    "type":"modules",
+    "dependencies":{},
+    "devDependencies":{
+        "testbox":"^4.4.0-snapshot"
+    },
+    "installPaths":{
+        "testbox":"testbox/"
+    },
+    "scripts":{
+        "format":"cfformat run models/**/*.cfc,tests/specs/**/*.cfc --overwrite",
+        "format:check":"cfformat check models/**/*.cfc,tests/specs/**/*.cfc"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ],
+    "testbox":{
+        "runner":"http://127.0.0.1:56271/tests/runner.cfm"
+    }
+}
