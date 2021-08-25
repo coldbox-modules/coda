@@ -5,7 +5,11 @@ component singleton {
     variables.MINUTES_IN_MONTH = 43200;
     variables.MINUTES_IN_TWO_MONTHS = 86400;
 
-    public string function formatDistance( required date date, required date baseDate, boolean includeSeconds = false ) {
+    public string function formatDistance(
+        required date date,
+        date baseDate = now(),
+        boolean includeSeconds = false
+    ) {
         var comparison = dateCompare( arguments.date, arguments.baseDate );
 
         var dateLeft = arguments.date;
