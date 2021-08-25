@@ -1,4 +1,4 @@
-component {
+component singleton {
 
     variables.MINUTES_IN_DAY = 1440;
     variables.MINUTES_IN_ALMOST_TWO_DAYS = 2520;
