@@ -16,7 +16,7 @@ Returns the distance between two dates expressed as an approximate human-readabl
 | locale | string | false | Current cbi18n locale. | The locale to use for the distance. |
 
 ```cfc
-coda.formatDistance( "2021-01-01 10:00:00", "2021-01-01 11:05:23" );
+coda.formatDistance( "2021-01-01 11:05:23", "2021-01-01 10:00:00" );
 // "about an hour"
 ```
 
