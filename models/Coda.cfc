@@ -14,7 +14,7 @@ component singleton accessors="true" {
      * @baseDate       The base date used to calculate the distance.
      * @includeSeconds Flag to include different values for sub-minute times.
      * @locale         The locale to use for the distance.  Defaults to the current cbi18n locale.
-     * 
+     *
      * @return         String
      */
     public string function formatDistance(
