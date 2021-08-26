@@ -3,7 +3,7 @@ component extends="tests.resources.AbstractFormatDistanceSpec" {
     function lessThanFiveSeconds() {
         return "less than 5 seconds";
     }
-    
+
     function lessThanTenSeconds() {
         return "less than 10 seconds";
     }
@@ -27,7 +27,7 @@ component extends="tests.resources.AbstractFormatDistanceSpec" {
     function fiveMinutes() {
         return "5 minutes";
     }
-    
+
     function twentyOneMinutes() {
         return "21 minutes";
     }
@@ -39,7 +39,7 @@ component extends="tests.resources.AbstractFormatDistanceSpec" {
     function aboutThreeHours() {
         return "about 3 hours";
     }
-    
+
     function aboutFourHours() {
         return "about 4 hours";
     }
