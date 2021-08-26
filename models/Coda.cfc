@@ -7,6 +7,16 @@ component singleton accessors="true" {
     variables.MINUTES_IN_MONTH = 43200;
     variables.MINUTES_IN_TWO_MONTHS = 86400;
 
+    /**
+     * Returns the distance between two dates expressed as an approximate human-readable string.
+     *
+     * @date           The date to calculate the distance.
+     * @baseDate       The base date used to calculate the distance.
+     * @includeSeconds Flag to include different values for sub-minute times.
+     * @locale         The locale to use for the distance.  Defaults to the current cbi18n locale.
+     * 
+     * @return         String
+     */
     public string function formatDistance(
         required date date,
         date baseDate = now(),
