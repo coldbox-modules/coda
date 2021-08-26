@@ -1,13 +1,28 @@
-component extends="testbox.system.BaseSpec" {
+component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
 
     variables.INCLUDE_SECONDS = true;
 
     function beforeAll() {
-        variables.coda = new root.models.Coda();
+        super.beforeAll();
+        variables.coda = getWireBox().getInstance( "@coda" );
+        variables.original_i18n = duplicate( variables.coda.geti18n() );
+        variables.i18n = prepareMock( variables.coda.geti18n() );
+        variables.i18n.$( method = "getResource", callback = function() {
+            return variables.original_i18n.getResource( argumentCollection = arguments );
+        } );
     }
 
     function run() {
         describe( "formatDistance", function() {
+            beforeEach( function() {
+                variables.i18n.$reset();
+            } );
+
+            afterEach( function() {
+                expect( variables.i18n.$count( "getResource" ) )
+                    .toBeGTE( 1, "getResource must be called at least once in each test. This is to ensure we are not returning hard coded values." );
+            } );
+
             describe( "includeSeconds", function() {
                 it( "less than 5s", function() {
                     var date = createDateTime( 2021, 1, 1, 12, 0, 3 );

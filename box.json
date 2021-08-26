@@ -14,12 +14,17 @@
     "shortDescription":"Either date helper functions or an object-oriented date wrapper. Not sure which yet.",
     "description":"Either date helper functions or an object-oriented date wrapper. Not sure which yet.",
     "type":"modules",
-    "dependencies":{},
+    "dependencies":{
+        "cbi18n":"^2.1.0+133"
+    },
     "devDependencies":{
-        "testbox":"^4.4.0-snapshot"
+        "testbox":"^4.4.0",
+        "coldbox":"^6.5.2+37"
     },
     "installPaths":{
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "cbi18n":"modules/cbi18n/",
+        "coldbox":"tests/resources/app/coldbox/"
     },
     "scripts":{
         "format":"cfformat run models/**/*.cfc,tests/specs/**/*.cfc --overwrite",

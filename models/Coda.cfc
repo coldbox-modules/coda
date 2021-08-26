@@ -1,4 +1,6 @@
-component singleton {
+component singleton accessors="true" {
+
+    property name="i18n" inject="resourceService@cbi18n";
 
     variables.MINUTES_IN_DAY = 1440;
     variables.MINUTES_IN_ALMOST_TWO_DAYS = 2520;
@@ -8,7 +10,8 @@ component singleton {
     public string function formatDistance(
         required date date,
         date baseDate = now(),
-        boolean includeSeconds = false
+        boolean includeSeconds = false,
+        string locale = variables.i18n.geti18n().getFWLocale()
     ) {
         var comparison = dateCompare( arguments.date, arguments.baseDate );
 
@@ -27,46 +30,56 @@ component singleton {
         if ( minutes < 2 ) {
             if ( arguments.includeSeconds ) {
                 if ( seconds < 5 ) {
-                    return "less than 5 seconds";
+                    return variables.i18n.getResource( resource = "lessThanXSeconds", values = 5, locale = arguments.locale );
                 } else if ( seconds < 10 ) {
-                    return "less than 10 seconds";
+                    return variables.i18n.getResource( resource = "lessThanXSeconds", values = 10, locale = arguments.locale );
                 } else if ( seconds < 20 ) {
-                    return "less than 20 seconds";
+                    return variables.i18n.getResource( resource = "lessThanXSeconds", values = 20, locale = arguments.locale );
                 } else if ( seconds < 40 ) {
-                    return "half a minute";
+                    return variables.i18n.getResource( resource = "halfAMinute", locale = arguments.locale );
                 } else if ( seconds < 60 ) {
-                    return "less than a minute";
+                    return variables.i18n.getResource( resource = "lessThanAMinute", locale = arguments.locale );
                 } else {
-                    return "1 minute";
+                    return variables.i18n.getResource( resource = "oneMinute", locale = arguments.locale );
                 }
             } else {
                 if ( minutes == 0 ) {
-                    return "less than a minute";
+                    return variables.i18n.getResource( resource = "lessThanAMinute", locale = arguments.locale );
                 } else {
-                    return minutes == 1 ? "1 minute" : "#minutes# minutes";
+                    return minutes == 1 ?
+                        variables.i18n.getResource( resource = "oneMinute", locale = arguments.locale ) :
+                        variables.i18n.getResource( resource = "xMinutes", values = minutes, locale = arguments.locale );
                 }
             }
             // 2 mins up to 0.75 hrs
         } else if ( minutes < 45 ) {
-            return minutes == 1 ? "a minute" : "#minutes# minutes";
+            return minutes == 1 ?
+                variables.i18n.getResource( resource = "oneMinute", locale = arguments.locale ) :
+                variables.i18n.getResource( resource = "xMinutes", values = minutes, locale = arguments.locale );
             // 0.75 hrs up to 1.5 hrs
         } else if ( minutes < 90 ) {
-            return "about an hour";
+            return variables.i18n.getResource( resource = "aboutAnHour", locale = arguments.locale );
             // 1.5 hrs up to 24 hrs
         } else if ( minutes < variables.MINUTES_IN_DAY ) {
             var hours = round( minutes / 60 );
-            return hours == 1 ? "about an hour" : "about #hours# hours";
+            return hours == 1 ?
+                variables.i18n.getResource( resource = "aboutAnHour", locale = arguments.locale ) :
+                variables.i18n.getResource( resource = "aboutXHours", values = hours, locale = arguments.locale );
             // 1 day up to 1.75 days
         } else if ( minutes < variables.MINUTES_IN_ALMOST_TWO_DAYS ) {
-            return "a day";
+            return variables.i18n.getResource( resource = "aDay", locale = arguments.locale );
             // 1.75 days up to 30 days
         } else if ( minutes < variables.MINUTES_IN_MONTH ) {
             var days = round( minutes / variables.MINUTES_IN_DAY );
-            return days == 1 ? "a day" : "#days# days";
+            return days == 1 ?
+                variables.i18n.getResource( resource = "aDay", locale = arguments.locale ) :
+                variables.i18n.getResource( resource = "xDays", values = days, locale = arguments.locale );
             // 1 month up to 2 months
         } else if ( minutes < variables.MINUTES_IN_TWO_MONTHS ) {
             months = round( minutes / variables.MINUTES_IN_MONTH );
-            return months == 1 ? "about a month" : "about #months# months";
+            return months == 1 ?
+                variables.i18n.getResource( resource = "aboutAMonth", locale = arguments.locale ) :
+                variables.i18n.getResource( resource = "aboutXMonths", values = months, locale = arguments.locale );
         }
 
         months = dateDiff( "m", dateRight, dateLeft );
@@ -74,7 +87,9 @@ component singleton {
         // 2 months up to 12 months
         if ( months < 12 ) {
             var nearestMonth = round( minutes / variables.MINUTES_IN_MONTH );
-            return nearestMonth == 1 ? "a month" : "#nearestMonth# months";
+            return nearestMonth == 1 ?
+                variables.i18n.getResource( resource = "aMonth", locale = arguments.locale ) :
+                variables.i18n.getResource( resource = "xMonths", values = nearestMonth, locale = arguments.locale );
             // 1 year up to max Date
         } else {
             var monthsSinceStartOfYear = months % 12;
@@ -82,14 +97,17 @@ component singleton {
 
             // N years up to 1 years 3 months
             if ( monthsSinceStartOfYear < 3 ) {
-                return years == 1 ? "about a year" : "about #years# years";
+                return years == 1 ?
+                    variables.i18n.getResource( resource = "aboutAYear", locale = arguments.locale ) :
+                    variables.i18n.getResource( resource = "aboutXYears", values = years, locale = arguments.locale );
                 // N years 3 months up to N years 9 months
             } else if ( monthsSinceStartOfYear < 9 ) {
-                return years == 1 ? "over a year" : "over #years# years";
-
+                return years == 1 ?
+                    variables.i18n.getResource( resource = "overAYear", locale = arguments.locale ) :
+                    variables.i18n.getResource( resource = "overXYears", values = years, locale = arguments.locale );
                 // N years 9 months up to N year 12 months
             } else {
-                return "almost #years + 1# years";
+                return variables.i18n.getResource( resource = "almostXYears", values = years + 1, locale = arguments.locale );
             }
         }
     }
