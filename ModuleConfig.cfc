@@ -11,7 +11,8 @@ component {
 
     function onLoad() {
         var resourceService = wirebox.getInstance( "ResourceService@cbi18n" );
-        resourceService.loadBundle( "#moduleMapping#/resources/i18n/coda" );
+        resourceService.loadBundle( "#moduleMapping#/resources/i18n/coda","en_US" );
+        resourceService.loadBundle( "#moduleMapping#/resources/i18n/coda","de_DE" );
     }
 
 }

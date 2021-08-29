@@ -1,5 +1,9 @@
 component extends="tests.resources.AbstractFormatDistanceSpec" {
 
+    function getTestLocale() {
+        return "de_DE";
+    }
+
     function lessThanFiveSeconds() {
         return "weniger als 5 Sekunden";
     }
