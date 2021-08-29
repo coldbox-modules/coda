@@ -1,0 +1,18 @@
+{
+    "lessThanXSeconds": "weniger als {1} Sekunden",
+    "halfAMinute": "eine halbe Minute",
+    "lessThanAMinute": "weniger als 1 Minute",
+    "oneMinute": "1 Minute",
+    "xMinutes": "{1} Minuten",
+    "aboutAnHour": "circa 1 Stunde",
+    "aboutXHours": "circa {1} Stunden",
+    "aDay": "1 Tag",
+    "xDays": "{1} Tage",
+    "aboutAMonth": "circa 1 Monat",
+    "xMonths": "{1} Monate",
+    "aboutAYear": "circa 1 Jahr",
+    "aboutXYears": "circa {1} Jahre",
+    "overAYear": "über 1 Jahr",
+    "overXYears": "über {1} Jahre",
+    "almostXYears": "fast {1} Jahre"
+}
