@@ -27,140 +27,140 @@ component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
                 it( "less than 5s", function() {
                     var date = createDateTime( 2021, 1, 1, 12, 0, 3 );
                     var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBe( lessThanFiveSeconds() );
+                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( lessThanFiveSeconds() );
                 } );
 
                 it( "less than 10s", function() {
                     var date = createDateTime( 2021, 1, 1, 12, 0, 8 );
                     var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBe( lessThanTenSeconds() );
+                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( lessThanTenSeconds() );
                 } );
 
                 it( "less than 20s", function() {
                     var date = createDateTime( 2021, 1, 1, 12, 0, 15 );
                     var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBe( lessThanTwentySeconds() );
+                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( lessThanTwentySeconds() );
                 } );
 
                 it( "less than 40s", function() {
                     var date = createDateTime( 2021, 1, 1, 12, 0, 39 );
                     var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBe( halfAMinute() );
+                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( halfAMinute() );
                 } );
 
                 it( "less than 60s", function() {
                     var date = createDateTime( 2021, 1, 1, 12, 0, 55 );
                     var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBe( lessThanAMinute() );
+                    expect( coda.formatDistance( date, baseDate, INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( lessThanAMinute() );
                 } );
             } );
 
             it( "0 to 59s", function() {
                 var date = createDateTime( 2021, 1, 1, 12, 0, 15 );
                 var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( lessThanAMinute() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( lessThanAMinute() );
             } );
 
             it( "1m to 2m", function() {
                 var date = createDateTime( 2021, 1, 1, 12, 1, 05 );
                 var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( oneMinute() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( oneMinute() );
             } );
 
             it( "2m to 45m", function() {
                 var date = createDateTime( 2021, 1, 1, 12, 5, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( fiveMinutes() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( fiveMinutes() );
 
                 date = createDateTime( 2021, 1, 1, 12, 21, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( twentyOneMinutes() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( twentyOneMinutes() );
             } );
 
             it( "45m to 1.5h", function() {
                 var date = createDateTime( 2021, 1, 1, 12, 48, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutAnHour() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutAnHour() );
 
                 date = createDateTime( 2021, 1, 1, 13, 29, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutAnHour() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutAnHour() );
             } );
 
             it( "1.5h to 24h", function() {
                 var date = createDateTime( 2021, 1, 1, 15, 29, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutThreeHours() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutThreeHours() );
 
                 date = createDateTime( 2021, 1, 1, 15, 45, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutFourHours() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutFourHours() );
             } );
 
             it( "1d to 1.75d", function() {
                 var date = createDateTime( 2021, 1, 2, 15, 0, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 12, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aDay() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aDay() );
 
                 date = createDateTime( 2021, 1, 2, 17, 0, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aDay() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aDay() );
             } );
 
             it( "1.75d to 30d", function() {
                 var date = createDateTime( 2021, 1, 2, 18, 30, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( twoDays() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( twoDays() );
 
                 date = createDateTime( 2021, 1, 21, 2, 30, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( twentyDays() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( twentyDays() );
             } );
 
             it( "1mos to 2mos", function() {
                 var date = createDateTime( 2021, 2, 1, 2, 30, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutAMonth() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutAMonth() );
             } );
 
             it( "2mos to 12mos", function() {
                 var date = createDateTime( 2021, 6, 1, 2, 30, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( fiveMonths() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( fiveMonths() );
 
                 date = createDateTime( 2021, 12, 1, 2, 30, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( elevenMonths() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( elevenMonths() );
             } );
 
             it( "N years to N years 3 months", function() {
                 var date = createDateTime( 2022, 1, 2, 0, 0, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutAYear() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutAYear() );
 
                 date = createDateTime( 2023, 1, 2, 0, 0, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( aboutTwoYears() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( aboutTwoYears() );
             } );
 
             it( "N years 3 months to N years 9 months", function() {
                 var date = createDateTime( 2022, 5, 1, 0, 0, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( overAYear() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( overAYear() );
 
                 date = createDateTime( 2023, 9, 1, 0, 0, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( overTwoYears() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( overTwoYears() );
             } );
 
             it( "N years 9 months to N years 12 months", function() {
                 var date = createDateTime( 2022, 11, 1, 0, 0, 0 );
                 var baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( almostTwoYears() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( almostTwoYears() );
 
                 date = createDateTime( 2023, 12, 1, 0, 0, 0 );
                 baseDate = createDateTime( 2021, 1, 1, 0, 0, 0 );
-                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBe( almostThreeYears() );
+                expect( coda.formatDistance( date, baseDate, !INCLUDE_SECONDS, getTestLocale() ) ).toBeWithCase( almostThreeYears() );
             } );
         } );
     }
