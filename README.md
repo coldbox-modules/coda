@@ -25,6 +25,7 @@ coda.formatDistance( "2021-01-01 11:05:23", "2021-01-01 10:00:00" );
 Coda supports the following locales:
 
 + en_US
++ de_DE
 
 You can contribute a new locale by adding a file to the `/resources/i18n/` folder.
 The file should be named `coda_{LANG}(_{LOCALE}).json` with `_{LOCALE}` being optional.
