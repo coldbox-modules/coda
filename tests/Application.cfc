@@ -17,5 +17,7 @@ component {
 
     function onRequestStart(string targetPage) {
         // applicationStop();
+        structDelete( application, "cbController" );
+        structDelete( application, "wirebox" );
     }
 }
