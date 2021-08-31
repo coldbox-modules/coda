@@ -176,4 +176,15 @@ component {
 		coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm"; // interactive bug report
 	}
 
+	/**
+	 * Load the Module you are testing
+	 */
+	function cbLoadInterceptorHelpers( event, interceptData, rc, prc ){
+		controller.getModuleService()
+			.registerAndActivateModule(
+				moduleName 		= "coda",
+				invocationPath 	= "testingModuleRoot"
+			);
+	}
+
 }

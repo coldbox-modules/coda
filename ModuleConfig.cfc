@@ -7,11 +7,11 @@ component {
 
     function configure() {
         binder.map( "@coda" ).to( "#moduleMapping#.models.Coda" );
-    }
-
-    function onLoad() {
-        var resourceService = wirebox.getInstance( "ResourceService@cbi18n" );
-        resourceService.loadBundle( "#moduleMapping#/resources/i18n/coda" );
+        cbi18n = {
+            "resourceBundles": {
+                "coda": "#moduleMapping#/resources/i18n/coda"
+            }
+        };
     }
 
 }
