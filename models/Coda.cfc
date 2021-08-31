@@ -71,7 +71,11 @@ component singleton accessors="true" {
                     return minutes == 1 ? variables.i18n.getResource(
                         resource = "oneMinute@coda",
                         locale = arguments.locale
-                    ) : variables.i18n.getResource( resource = "xMinutes@coda", values = minutes, locale = arguments.locale );
+                    ) : variables.i18n.getResource(
+                        resource = "xMinutes@coda",
+                        values = minutes,
+                        locale = arguments.locale
+                    );
                 }
             }
             // 2 mins up to 0.75 hrs
@@ -130,7 +134,10 @@ component singleton accessors="true" {
 
             // N years up to 1 years 3 months
             if ( monthsSinceStartOfYear < 3 ) {
-                return years == 1 ? variables.i18n.getResource( resource = "aboutAYear@coda", locale = arguments.locale ) : variables.i18n.getResource(
+                return years == 1 ? variables.i18n.getResource(
+                    resource = "aboutAYear@coda",
+                    locale = arguments.locale
+                ) : variables.i18n.getResource(
                     resource = "aboutXYears@coda",
                     values = years,
                     locale = arguments.locale
