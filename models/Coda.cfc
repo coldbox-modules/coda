@@ -111,7 +111,7 @@ component singleton accessors="true" {
         } else if ( minutes < variables.MINUTES_IN_TWO_MONTHS ) {
             months = round( minutes / variables.MINUTES_IN_MONTH );
             return months == 1 ? variables.i18n.getResource( resource = "aboutAMonth@coda", locale = arguments.locale ) : variables.i18n.getResource(
-                resource = "aboutXMonths@coda",
+                resource = "aboutAMonth@coda",
                 values = months,
                 locale = arguments.locale
             );
