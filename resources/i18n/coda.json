@@ -9,6 +9,7 @@
     "aDay": "a day",
     "xDays": "{1} days",
     "aboutAMonth": "about a month",
+    "aboutXMonths": "about {1} months",
     "xMonths": "{1} months",
     "aboutAYear": "about a year",
     "aboutXYears": "about {1} years",

@@ -9,6 +9,7 @@
     "aDay": "1 Tag",
     "xDays": "{1} Tage",
     "aboutAMonth": "circa 1 Monat",
+    "aboutXMonth": "circa {1} Monate",
     "xMonths": "{1} Monate",
     "aboutAYear": "circa 1 Jahr",
     "aboutXYears": "circa {1} Jahre",
