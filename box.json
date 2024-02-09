@@ -15,11 +15,11 @@
     "description":"Either date helper functions or an object-oriented date wrapper. Not sure which yet.",
     "type":"modules",
     "dependencies":{
-        "cbi18n":"^2.1.0+133"
+        "cbi18n":"^3"
     },
     "devDependencies":{
-        "testbox":"^4.4.0",
-        "coldbox":"^6.5.2+37"
+        "testbox":"^5",
+        "coldbox":"^7"
     },
     "installPaths":{
         "testbox":"testbox/",
